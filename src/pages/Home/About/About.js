@@ -49,7 +49,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className="col-md-6">
-                    <img src={about} alt="car" />
+                    <img className="img-fluid" src={about} alt="car" />
                 </div>
             </div>
         </section>

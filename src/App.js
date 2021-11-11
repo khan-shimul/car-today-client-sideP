@@ -9,6 +9,7 @@ import Login from './pages/Login/Login/Login';
 import Footer from './pages/Shared/Footer/Footer';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import Header from './pages/Shared/Header/Header';
+import Explore from './pages/Explore/Explore';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path='/login'>
             <Login />
+          </Route>
+          <Route path='/explore'>
+            <Explore />
           </Route>
           <Route path='/dashboard'>
             <Dashboard />
