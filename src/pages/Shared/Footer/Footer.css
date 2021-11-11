@@ -1,0 +1,11 @@
+.bg-footer{
+    background-image: url("../../../images/footer/footer.jpg"),
+    linear-gradient(rgb(10, 16, 34), rgb(11, 10, 36));
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 400px; */
+    width: 100%;
+    background-blend-mode: overlay;
+}
