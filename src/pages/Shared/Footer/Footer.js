@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import logo from '../../../images/logo/logo.png'
+import logo from '../../../images/logo/logo.png';
 
 const Footer = () => {
     return (
@@ -12,7 +12,7 @@ const Footer = () => {
                             <h2 className="text-white fs-5 mt-3 mb-4">About Car-Today</h2>
                             <img className="fluid" style={{ height: '30px' }} src={logo} alt="company-logo" />
                             <p className="fw-bold text-white fs-5">Car-Today</p>
-                            <p className="text-secondary"><small>Copyright © 2021 Car-Today. All Rights Reserved.</small></p>
+                            <p className="text-secondary"><small>Copyright &copy; 2021 Car-Today. All Rights Reserved.</small></p>
                         </div>
                         <div className="col-md-3">
                             <h2 className="text-white fs-5 mb-4 mt-3">USEFUL LINKS</h2>
@@ -39,7 +39,7 @@ const Footer = () => {
                             <p className="text-secondary">USA, Auto, King St. 665087 <br />
                                 <span>Phone.: +7 234 949-58-83</span>
                                 <br />
-                                <span>© 2018 Car Today LTD</span>
+                                <span>&copy; 2018 Car Today LTD</span>
                             </p>
 
                         </div>
