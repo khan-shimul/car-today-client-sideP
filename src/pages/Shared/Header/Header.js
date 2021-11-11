@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Header.css';
 import logo from '../../../images/logo/logo.png';
 import { Container, Nav, Navbar } from 'react-bootstrap';
@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">
+                <Navbar.Brand as={NavLink} to='/'>
                     <img
                         alt=""
                         src={logo}

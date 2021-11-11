@@ -8,11 +8,13 @@ import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
 import Footer from './pages/Shared/Footer/Footer';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import Header from './pages/Shared/Header/Header';
 
 function App() {
   return (
     <div className="Font-link">
       <Router>
+        <Header />
         <Switch>
           <Route exact path='/'>
             <Home />

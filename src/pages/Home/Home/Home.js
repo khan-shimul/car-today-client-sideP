@@ -8,7 +8,7 @@ import TopBanner from '../TopBanner/TopBanner';
 const Home = () => {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             <TopBanner />
             <Cars />
             <About />
