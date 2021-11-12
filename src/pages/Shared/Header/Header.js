@@ -10,7 +10,7 @@ const Header = () => {
     const { user, logoutUser } = useAuth();
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar sticky="top" collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand as={NavLink} to='/'>
                     <img

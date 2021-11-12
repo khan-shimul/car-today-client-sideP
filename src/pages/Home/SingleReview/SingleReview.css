@@ -1,0 +1,13 @@
+.review{
+    transition: 0.4s;
+}
+.review:hover{
+    box-shadow: rgba(100, 100, 111, 0.226) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+.review img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
