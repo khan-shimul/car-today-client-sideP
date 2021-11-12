@@ -26,6 +26,7 @@ const CarDetails = () => {
     // handle booked package
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
+        data.status = 'Pending';
         axios.post('http://localhost:5000/orders', { data })
             .then(result => {
                 if (result.data.insertedId) {

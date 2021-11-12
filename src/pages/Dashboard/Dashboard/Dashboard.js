@@ -7,6 +7,7 @@ import {
     useRouteMatch
 } from "react-router-dom";
 import AddCar from '../AddCar/AddCar';
+import MyOrders from '../MyOrders/MyOrders/MyOrders';
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
@@ -37,7 +38,7 @@ const Dashboard = () => {
                 <div>
                     <Switch>
                         <Route exact path={path}>
-                            <h3>My Orders</h3>
+                            <MyOrders />
                         </Route>
                         <Route path={`${path}/pay`}>
                             <h2>Payment system coming soon...!</h2>
