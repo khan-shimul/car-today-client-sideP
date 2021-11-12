@@ -13,6 +13,7 @@ import Explore from './pages/Explore/Explore';
 import CarDetails from './pages/Home/CarDetails/CarDetails';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 
 
 function App() {
@@ -28,9 +29,9 @@ function App() {
             <Route path='/home'>
               <Home />
             </Route>
-            <Route path='/car-details/:id'>
+            <PrivateRoute path='/car-details/:id'>
               <CarDetails />
-            </Route>
+            </PrivateRoute>
             <Route path='/login'>
               <Login />
             </Route>
