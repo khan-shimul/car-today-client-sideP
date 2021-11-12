@@ -1,21 +1,21 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 
-const MyOrder = ({ myOrder }) => {
-    const { carName, img } = myOrder;
-    console.log(myOrder)
+const MyOrder = ({ order, handleDelete }) => {
+    const { carName, status, carSelf } = order;
     return (
         <Col>
             <Card className="p-3 h-100 car">
-                <Card.Img variant="top" className="img-fluid" src={img} />
+                <p className="text-warning">{status}</p>
+                <Card.Img variant="top" className="img-fluid" src={carSelf?.img} />
                 <Card.Body>
                     <Card.Title className="fs-4">{carName}
                     </Card.Title>
-
+                    <p>${carSelf?.price}</p>
                     <Button
-
+                        onClick={() => handleDelete(order._id)}
                         variant="danger"
-                    >Buy Now</Button>
+                    >Cancel Order</Button>
                 </Card.Body>
             </Card>
         </Col>

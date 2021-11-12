@@ -37,36 +37,15 @@ const MyOrders = () => {
 
     return (
         <div>
-            <div className="table-responsive-sm table-responsive table-responsive-md table-responsive-lg table-responsive-xl text-center">
+            <Row xs={1} md={3} className="g-4">
                 {
-                    myOrders.length && <div>
-                        <h2 className="text-center my-4 fw-bold fs-5">Your Orders</h2>
-                        <div className="line d-flex mx-auto"></div>
-                        <Table striped bordered hover variant="light" className=" my-4">
-                            <thead>
-                                <tr>
-                                    <th>Brand</th>
-                                    <th>Color</th>
-                                    <th>Cost</th>
-                                    <th>Status</th>
-                                    <th>Review</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    myOrders?.map(order => <tr key={order._id}>
-                                        <td>{order?.carName}</td>
-                                        <td>{order?.carSelf?.color}</td>
-                                        <td>${order?.carSelf?.price}</td>
-                                        <td>{order?.status}</td>
-                                        <td><Button onClick={() => handleDelete(order._id)} variant="danger">Cancel</Button></td>
-                                    </tr>)
-                                }
-                            </tbody>
-                        </Table>
-                    </div>
+                    myOrders.map(order => <MyOrder
+                        key={order._id}
+                        order={order}
+                        handleDelete={handleDelete}
+                    />)
                 }
-            </div>
+            </Row>
         </div>
     );
 };

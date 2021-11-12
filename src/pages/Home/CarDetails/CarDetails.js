@@ -25,10 +25,10 @@ const CarDetails = () => {
             })
     }, []);
 
-    // handle booked package
+    // handle place order
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        data.carSelf = { price: price, color: color }
+        data.carSelf = { img: img, price: price, color: color }
         data.status = 'Pending';
         axios.post('http://localhost:5000/orders', { data })
             .then(result => {
