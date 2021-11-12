@@ -4,11 +4,13 @@ import { Button, Card, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import Rating from 'react-rating';
 import { useParams } from 'react-router';
+import useAuth from '../../../hooks/useAuth';
 import './CarDetails.css';
 
 const CarDetails = () => {
     const { id } = useParams();
     const [singleCar, setSingleCar] = useState({});
+    const { user } = useAuth();
     // destructure data
     const { name, price, img, description, rating, fast, color } = singleCar;
     // load single data
@@ -84,8 +86,8 @@ const CarDetails = () => {
                         <form onSubmit={handleSubmit(onSubmit)} className="order-form d-flex flex-column p-4">
                             <h4 className="fw-bold fs-5 mb-3">Order the car</h4>
                             <input readOnly defaultValue={name} {...register("carName")} className="mb-2 p-3 border rounded-2" />
-                            <input defaultValue='Your Name' {...register("fullName", { required: true })} placeholder="Your Full Name" className="mb-2 p-3 border rounded-2" />
-                            <input type="email" defaultValue='email' {...register("email", { required: true })} placeholder="Your Email" className="mb-2 p-3 border rounded-2" />
+                            <input defaultValue={user?.displayName} {...register("fullName", { required: true })} placeholder="Your Full Name" className="mb-2 p-3 border rounded-2" />
+                            <input type="email" defaultValue={user?.email} {...register("email", { required: true })} placeholder="Your Email" className="mb-2 p-3 border rounded-2" />
                             <input type="number" {...register("phoneNumber", { required: true })} placeholder="Phone Number" className="mb-2 p-2 border rounded-2" />
 
                             <textarea rows="3"  {...register("address")} placeholder="Your Address" className="mb-2 p-3 border rounded-2" />

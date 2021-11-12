@@ -28,7 +28,7 @@ const Register = () => {
         //     return
         // }
         // create new user
-        registerNewUser(data.email, data.password, history)
+        registerNewUser(data.email, data.password, data.fullName, history)
         reset();
 
     };
