@@ -1,14 +1,34 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 import loginBg from '../../../images/login/login-bg.png';
-import useFirebase from '../../../hooks/useFirebase';
 
 const Register = () => {
     const { register, handleSubmit, reset } = useForm();
 
+    const { user, setError, error, registerNewUser } = useAuth();
+    console.log(user)
+
     const onSubmit = data => {
-        console.log(data)
+        // pass validation for 6 character
+        if (data.password.length < 6) {
+            setError('Password should be 6 character')
+            return
+        }
+        // pass validation for 1 special character
+        if (!/(?=.*[!@#$&*])/.test(data.password)) {
+            setError('Password should be one special character')
+            return
+        }
+        // check both pass same
+        if (data.password !== data.password2) {
+            alert('Password should be match')
+            return
+        }
+        // create new user
+        registerNewUser(data.email, data.password)
+        reset();
 
     };
 

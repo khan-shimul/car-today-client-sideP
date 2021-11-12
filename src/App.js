@@ -12,40 +12,41 @@ import Header from './pages/Shared/Header/Header';
 import Explore from './pages/Explore/Explore';
 import CarDetails from './pages/Home/CarDetails/CarDetails';
 import Register from './pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 
 function App() {
   return (
     <div className="Font-link">
-
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path='/'>
-            <Home />
-          </Route>
-          <Route path='/home'>
-            <Home />
-          </Route>
-          <Route path='/car-details/:id'>
-            <CarDetails />
-          </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/register'>
-            <Register />
-          </Route>
-          <Route path='/explore'>
-            <Explore />
-          </Route>
-          <Route path='/dashboard'>
-            <Dashboard />
-          </Route>
-        </Switch>
-        <Footer />
-      </Router>
-
+      <AuthProvider>
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path='/'>
+              <Home />
+            </Route>
+            <Route path='/home'>
+              <Home />
+            </Route>
+            <Route path='/car-details/:id'>
+              <CarDetails />
+            </Route>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/register'>
+              <Register />
+            </Route>
+            <Route path='/explore'>
+              <Explore />
+            </Route>
+            <Route path='/dashboard'>
+              <Dashboard />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
