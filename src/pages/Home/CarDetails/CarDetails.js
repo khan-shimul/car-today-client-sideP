@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import Rating from 'react-rating';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import './CarDetails.css';
 
@@ -11,6 +11,8 @@ const CarDetails = () => {
     const { id } = useParams();
     const [singleCar, setSingleCar] = useState({});
     const { user } = useAuth();
+    const history = useHistory();
+
     // destructure data
     const { name, price, img, description, rating, fast, color } = singleCar;
     // load single data
@@ -26,11 +28,13 @@ const CarDetails = () => {
     // handle booked package
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
+        data.carSelf = { price: price, color: color }
         data.status = 'Pending';
         axios.post('http://localhost:5000/orders', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     alert('Successfully order placed')
+                    history.push('/dashboard/my-order')
                 }
             })
     }
