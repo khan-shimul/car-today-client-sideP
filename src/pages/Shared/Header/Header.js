@@ -7,9 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 
 
 const Header = () => {
-
-    const { user, error, logoutUser } = useAuth();
-    console.log(user, error)
+    const { user, logoutUser } = useAuth();
 
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
