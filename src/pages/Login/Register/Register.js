@@ -1,4 +1,5 @@
 import React from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -7,7 +8,7 @@ import loginBg from '../../../images/login/login-bg.png';
 const Register = () => {
     const { register, handleSubmit, reset } = useForm();
 
-    const { user, setError, error, registerNewUser } = useAuth();
+    const { user, setError, error, registerNewUser, loading } = useAuth();
     console.log(user)
 
     const onSubmit = data => {
@@ -23,7 +24,7 @@ const Register = () => {
         }
         // check both pass same
         if (data.password !== data.password2) {
-            alert('Password should be match')
+            alert('Password and confirm password should be match')
             return
         }
         // create new user
@@ -37,7 +38,7 @@ const Register = () => {
             <div className="row d-flex justify-content-center align-items-center my-5">
 
                 <div className="col-md-6">
-                    <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column login-form">
+                    {!loading && <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column login-form">
                         <h2 className="fw-bold fs-4 mb-3">Create Account</h2>
                         <input placeholder="Full Name" {...register("fullName", { required: true })} className="mb-2 p-3 border rounded-2" />
                         <input placeholder="Email" {...register("email", { required: true })} className="mb-2 p-3 border rounded-2" />
@@ -46,7 +47,8 @@ const Register = () => {
                         {/* <p><small>{error}</small></p> */}
                         <input type="submit" value="Register" className="btn btn-danger p-3" />
                         <p className="mt-2">Already have an account? <Link to="/login" className="text-decoration-none">Login</Link> </p>
-                    </form>
+                    </form>}
+                    {loading && <Spinner animation="border" variant="warning" />}
                 </div>
 
                 <div data-aos="fade-right" className="col-md-6">
