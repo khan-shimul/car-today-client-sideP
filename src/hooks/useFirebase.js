@@ -14,10 +14,11 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
 
     // register brand new user
-    const registerNewUser = (email, password) => {
+    const registerNewUser = (email, password, history) => {
         setLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                history.replace('/');
                 setError('');
             })
             .catch((error) => {

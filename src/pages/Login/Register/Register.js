@@ -4,12 +4,12 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import loginBg from '../../../images/login/login-bg.png';
+import { useHistory } from 'react-router-dom';
 
 const Register = () => {
     const { register, handleSubmit, reset } = useForm();
-
-    const { user, setError, error, registerNewUser, loading } = useAuth();
-    console.log(user)
+    const { setError, error, registerNewUser, loading } = useAuth();
+    const history = useHistory();
 
     const onSubmit = data => {
         // pass validation for 6 character
@@ -28,7 +28,7 @@ const Register = () => {
         //     return
         // }
         // create new user
-        registerNewUser(data.email, data.password)
+        registerNewUser(data.email, data.password, history)
         reset();
 
     };
