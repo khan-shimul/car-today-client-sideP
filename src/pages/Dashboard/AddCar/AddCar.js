@@ -17,9 +17,9 @@ const AddCar = () => {
     };
 
     return (
-        <div className="add-car-form m-5">
+        <div className="">
             <div>
-                <h2 className="mb-3">Please add a car</h2>
+                <h2 className="mb-3">Add Your New Car</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column justify-content-center">
                     <input placeholder="Car Name" {...register("name", { required: true })} className="mb-3 p-3 border rounded-2" />
                     <input type="number" placeholder="Speed" {...register("fast", { required: true })} className="mb-3 p-3 border rounded-2" />

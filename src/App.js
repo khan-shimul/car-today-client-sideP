@@ -21,7 +21,6 @@ function App() {
     <div className="Font-link">
       <AuthProvider>
         <Router>
-          <Header />
           <Switch>
             <Route exact path='/'>
               <Home />
@@ -45,7 +44,6 @@ function App() {
               <Dashboard />
             </Route>
           </Switch>
-          <Footer />
         </Router>
       </AuthProvider>
     </div>

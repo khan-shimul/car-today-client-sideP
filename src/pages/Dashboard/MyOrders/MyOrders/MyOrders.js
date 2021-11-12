@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Row } from 'react-bootstrap';
 import useAuth from '../../../../hooks/useAuth';
 
 const MyOrders = () => {
@@ -9,13 +10,13 @@ const MyOrders = () => {
         fetch(`http://localhost:5000/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                setMyOrders(data)
             })
     }, [])
 
     return (
         <div>
-            <h2>My orderssss</h2>
+            <h2>My orderssss: {myOrders.length}</h2>
         </div>
     );
 };
