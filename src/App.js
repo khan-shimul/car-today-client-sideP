@@ -10,6 +10,7 @@ import Footer from './pages/Shared/Footer/Footer';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import Header from './pages/Shared/Header/Header';
 import Explore from './pages/Explore/Explore';
+import CarDetails from './pages/Home/CarDetails/CarDetails';
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path='/home'>
             <Home />
+          </Route>
+          <Route path='/car-details/:id'>
+            <CarDetails />
           </Route>
           <Route path='/login'>
             <Login />
