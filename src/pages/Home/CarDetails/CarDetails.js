@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Card, Col, Row } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import Rating from 'react-rating';
 import { useParams } from 'react-router';
@@ -17,31 +17,21 @@ const CarDetails = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/cars/${id}`)
             .then(res => res.json())
-            .then(data => setSingleCar(data))
+            .then(data => {
+                setSingleCar(data)
+                reset({ carName: data.name })
+            })
     }, []);
 
-    const { register, handleSubmit, reset } = useForm();
     // handle booked package
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        console.log(data)
-        const car = singleCar;
-        // car.email = user.email;
-        // car.clientInfo = data;
-        car.status = 'Pending';
-        // delete car._id;
-        // generate random unique id
-        // const randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-        // const unique_id = randLetter + Date.now();
-        // car.unique_id = unique_id;
-
-        // axios.post('https://guarded-thicket-61427.herokuapp.com/booked', { packaged: car })
-        //     .then(result => {
-        //         if (result.data.insertedId) {
-        //             alert('Successfully booked')
-        //             reset();
-        //             // history.push('/my-orders')
-        //         }
-        //     })
+        axios.post('http://localhost:5000/orders', { data })
+            .then(result => {
+                if (result.data.insertedId) {
+                    alert('Successfully order placed')
+                }
+            })
     }
 
     return (
