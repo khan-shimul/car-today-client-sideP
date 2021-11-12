@@ -38,9 +38,9 @@ function App() {
             <Route path='/explore'>
               <CarGallery />
             </Route>
-            <Route path='/dashboard'>
+            <PrivateRoute path='/dashboard'>
               <Dashboard />
-            </Route>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

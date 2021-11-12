@@ -20,11 +20,14 @@ import MyOrders from '../../Dashboard/MyOrders/MyOrders/MyOrders';
 import AddCar from '../../Dashboard/AddCar/AddCar';
 import useAuth from '../../../hooks/useAuth';
 import './Dashboard.css';
+import DashboardHome from '../DashboardHome/DashboardHome';
+import Payment from '../Payment/Payment';
+import Review from '../Review/Review';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
-    const { user } = useAuth();
+    const { user, logoutUser } = useAuth();
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -41,9 +44,12 @@ function Dashboard(props) {
             <div className="d-flex flex-column side-bar">
                 <Divider />
                 <NavLink to='/explore'>Car Gallery</NavLink>
+                <NavLink to={`${url}/payment`}>Payment</NavLink>
+                <NavLink to={`${url}/my-order`}>My Order</NavLink>
+                <NavLink to={`${url}/review`}>Review</NavLink>
                 <NavLink to={`${url}/add-car`}>Add New Car</NavLink>
                 <Divider />
-                <Button variant="outlined" color="error" style={{ margin: '5px' }}>Logout</Button>
+                <Button onClick={logoutUser} variant="outlined" color="error" style={{ margin: '5px' }}>Logout</Button>
             </div>
 
 
@@ -116,7 +122,16 @@ function Dashboard(props) {
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
+                        <DashboardHome />
+                    </Route>
+                    <Route path={`${path}/payment`}>
+                        <Payment />
+                    </Route>
+                    <Route path={`${path}/my-order`}>
                         <MyOrders />
+                    </Route>
+                    <Route path={`${path}/review`}>
+                        <Review />
                     </Route>
                     <Route path={`${path}/add-car`}>
                         <AddCar />
