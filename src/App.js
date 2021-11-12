@@ -11,10 +11,13 @@ import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 import Header from './pages/Shared/Header/Header';
 import Explore from './pages/Explore/Explore';
 import CarDetails from './pages/Home/CarDetails/CarDetails';
+import Register from './pages/Login/Register/Register';
+
 
 function App() {
   return (
     <div className="Font-link">
+
       <Router>
         <Header />
         <Switch>
@@ -30,6 +33,9 @@ function App() {
           <Route path='/login'>
             <Login />
           </Route>
+          <Route path='/register'>
+            <Register />
+          </Route>
           <Route path='/explore'>
             <Explore />
           </Route>
@@ -39,6 +45,7 @@ function App() {
         </Switch>
         <Footer />
       </Router>
+
     </div>
   );
 }
