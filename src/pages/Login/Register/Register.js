@@ -44,14 +44,14 @@ const Register = () => {
                         <input placeholder="Email" {...register("email", { required: true })} className="mb-2 p-3 border rounded-2" />
                         <input type="password" placeholder="Password" {...register("password", { required: true })} className="mb-2 p-3 border rounded-2" />
                         <input type="password" placeholder="Confirm Password" {...register("password2", { required: true })} className="mb-2 p-3 border rounded-2" />
-                        {/* <p><small>{error}</small></p> */}
+                        <p><small>{error}</small></p>
                         <input type="submit" value="Register" className="btn btn-danger p-3" />
                         <p className="mt-2">Already have an account? <Link to="/login" className="text-decoration-none">Login</Link> </p>
                     </form>}
-                    {loading && <Spinner animation="border" variant="warning" />}
+                    {loading && <Spinner className="d-flex mx-auto" animation="border" variant="warning" />}
                 </div>
 
-                <div data-aos="fade-right" className="col-md-6">
+                <div className="col-md-6">
                     <img className="img-fluid p-5" src={loginBg} alt="" />
                 </div>
             </div>
