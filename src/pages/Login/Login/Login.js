@@ -1,10 +1,38 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
+import loginBg from '../../../images/login/login-bg.png';
+import './Login.css';
 
 const Login = () => {
+    const { register, handleSubmit, reset } = useForm();
+
+    const onSubmit = data => {
+        console.log(data)
+    };
+
     return (
-        <div>
-            <h2>Login</h2>
-        </div>
+        <section className="container">
+            <div className="row d-flex justify-content-center align-items-center my-5">
+                <div className="col-md-6">
+                    <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column login-form">
+                        <h2 className="fw-bold fs-4 mb-3">Login Your Account</h2>
+                        <input placeholder="Email" {...register("email", { required: true })} className="mb-2 p-3 border rounded-2" />
+                        <input type="password" placeholder="Password" {...register("password", { required: true })} className="mb-2 p-3 border rounded-2" />
+                        {/* <p><small>{error}</small></p> */}
+                        <input type="submit" value="Login" className="btn btn-danger" />
+                        <p>New to CarToday? <Link to="/signup" className="text-decoration-none">Create Account</Link> </p>
+                        <span className="text-center mt-2">Or Login With</span>
+                        <hr className="w-25 d-flex mx-auto" />
+                        <Button variant="primary"><i className="fab fa-google"></i> Google</Button>
+                    </form>
+                </div>
+                <div className="col-md-6">
+                    <img className="img-fluid p-5" src={loginBg} alt="" />
+                </div>
+            </div>
+        </section>
     );
 };
 
