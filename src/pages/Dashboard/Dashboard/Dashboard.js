@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import {
     Switch,
@@ -39,10 +40,10 @@ function Dashboard(props) {
 
             <div className="d-flex flex-column side-bar">
                 <Divider />
-                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/explore'>Car Gallery</NavLink>
                 <NavLink to={`${url}/add-car`}>Add New Car</NavLink>
                 <Divider />
-                <button style={{ margin: '5px' }}>Logout</button>
+                <Button variant="outlined" color="error" style={{ margin: '5px' }}>Logout</Button>
             </div>
 
 

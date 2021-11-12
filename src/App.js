@@ -6,14 +6,12 @@ import {
 } from "react-router-dom";
 import Home from './pages/Home/Home/Home';
 import Login from './pages/Login/Login/Login';
-import Footer from './pages/Shared/Footer/Footer';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
-import Header from './pages/Shared/Header/Header';
-import Explore from './pages/Explore/Explore';
-import CarDetails from './pages/Home/CarDetails/CarDetails';
 import Register from './pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
+import CarGallery from './pages/CarGallery/CarGallery';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 
 function App() {
@@ -29,7 +27,7 @@ function App() {
               <Home />
             </Route>
             <PrivateRoute path='/car-details/:id'>
-              <CarDetails />
+              <PlaceOrder />
             </PrivateRoute>
             <Route path='/login'>
               <Login />
@@ -38,7 +36,7 @@ function App() {
               <Register />
             </Route>
             <Route path='/explore'>
-              <Explore />
+              <CarGallery />
             </Route>
             <Route path='/dashboard'>
               <Dashboard />

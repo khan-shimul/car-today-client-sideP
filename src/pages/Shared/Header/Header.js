@@ -28,7 +28,7 @@ const Header = () => {
                     </Nav>
                     <Nav>
                         <Nav.Link as={NavLink} to="/explore">Explore Cars</Nav.Link>
-                        <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>
+                        {user.email && <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>}
                         {
                             !user?.email ? <Nav.Link as={NavLink} to="/login">Login</Nav.Link> : <button onClick={logoutUser}>Logout</button>
 
