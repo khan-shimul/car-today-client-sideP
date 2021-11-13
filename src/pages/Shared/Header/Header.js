@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 import logo from '../../../images/logo/logo.png';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
@@ -30,7 +30,7 @@ const Header = () => {
                         <Nav.Link as={NavLink} to="/explore">Gallery</Nav.Link>
                         {user.email && <Nav.Link as={NavLink} to="/dashboard">Dashboard</Nav.Link>}
                         {
-                            !user?.email ? <Nav.Link as={NavLink} to="/login">Login</Nav.Link> : <button onClick={logoutUser}>Logout</button>
+                            !user?.email ? <Nav.Link as={NavLink} to="/login">Login</Nav.Link> : <Button variant="outline-danger" onClick={logoutUser}>Logout</Button>
 
                         }
                     </Nav>

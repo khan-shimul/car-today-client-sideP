@@ -1,17 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Row, Spinner } from 'react-bootstrap';
 import useCars from '../../../../hooks/useCars/useCars';
 import Car from '../Car/Car';
 
 const Cars = () => {
-    // const [cars, setCars] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('https://floating-beyond-24545.herokuapp.com/cars')
-    //         .then(res => res.json())
-    //         .then(data => setCars(data))
-    // }, [])
-
+    // load products
     const [cars] = useCars();
 
     return (

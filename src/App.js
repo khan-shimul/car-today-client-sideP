@@ -12,6 +12,7 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import CarGallery from './pages/CarGallery/CarGallery';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import NotFound from './pages/NotFound/NotFound';
 
 
 function App() {
@@ -41,6 +42,9 @@ function App() {
             <PrivateRoute path='/dashboard'>
               <Dashboard />
             </PrivateRoute>
+            <Route path='*'>
+              <NotFound />
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

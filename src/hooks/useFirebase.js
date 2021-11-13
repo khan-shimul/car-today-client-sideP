@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from 'axios';
 import initializeFirebase from "../pages/Login/Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, getIdToken, signOut, onAuthStateChanged } from "firebase/auth";
 
@@ -92,7 +91,7 @@ const useFirebase = () => {
             setLoading(false);
         });
         return () => unsubscribe;
-    }, []);
+    }, [auth]);
 
     // get admin req to db
     useEffect(() => {
