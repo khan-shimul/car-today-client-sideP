@@ -23,6 +23,7 @@ import './Dashboard.css';
 import DashboardHome from '../DashboardHome/DashboardHome';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
+import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 
 const drawerWidth = 250;
 
@@ -47,7 +48,11 @@ function Dashboard(props) {
                 <NavLink to={`${url}/payment`}>Payment</NavLink>
                 <NavLink to={`${url}/my-order`}>My Orders</NavLink>
                 <NavLink to={`${url}/review`}>Review</NavLink>
+
+                <NavLink to={`${url}/manage-all-orders`}>Manage All Orders</NavLink>
                 <NavLink to={`${url}/add-car`}>Add New Car</NavLink>
+                <NavLink to={`${url}/make-admin`}>Make Admin</NavLink>
+                <NavLink to={`${url}/manage-products`}>Manage Products</NavLink>
                 {/* <Divider /> */}
                 <Button onClick={logoutUser} variant="outlined" color="error" style={{ margin: '5px', width: '50%' }}>Logout</Button>
             </div>
@@ -133,8 +138,18 @@ function Dashboard(props) {
                     <Route path={`${path}/review`}>
                         <Review />
                     </Route>
+                    {/* Admin Route */}
+                    <Route path={`${path}/manage-all-orders`}>
+                        <h2>manage-all-orders</h2>
+                    </Route>
                     <Route path={`${path}/add-car`}>
                         <AddCar />
+                    </Route>
+                    <Route path={`${path}/make-admin`}>
+                        <MakeAdmin />
+                    </Route>
+                    <Route path={`${path}/manage-products`}>
+                        <h2>manage-products</h2>
                     </Route>
                 </Switch>
             </Box>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import axios from 'axios';
 import initializeFirebase from "../pages/Login/Firebase/firebase.init";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, signOut, onAuthStateChanged } from "firebase/auth";
 
@@ -20,6 +21,8 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const newUser = { email, displayName: name };
                 setUser(newUser);
+                // store user to database
+                storeUserToDb(email, name, 'POST');
                 // send name to firebase
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -60,6 +63,9 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 setUser(result.user);
+                // store user to db
+                storeUserToDb(result?.user?.email, result?.user?.displayName, 'PUT');
+                // redirect
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setError('');
@@ -93,7 +99,20 @@ const useFirebase = () => {
             // An error happened.
         })
             .finally(() => setLoading(false));
-    }
+    };
+
+    // store data
+    const storeUserToDb = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
+    };
 
     return {
         user,
