@@ -6,16 +6,17 @@ const MakeAdmin = () => {
 
     // add cars api
     const onSubmit = data => {
-        fetch('https://floating-beyond-24545.herokuapp.com/admin', {
+        fetch('https://floating-beyond-24545.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
-                'authorization': `Bearer ${localStorage.getItem('idToken')}`,
+                // 'authorization': `Bearer ${localStorage.getItem('idToken')}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)
         })
             .then(res => res.json())
             .then(result => {
+                console.log(result)
                 if (result.modifiedCount) {
                     alert('Successfully make an admin')
                 }
