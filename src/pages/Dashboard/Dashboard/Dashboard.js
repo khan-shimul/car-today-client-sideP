@@ -24,7 +24,7 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
 
-const drawerWidth = 200;
+const drawerWidth = 250;
 
 function Dashboard(props) {
     const { user, logoutUser } = useAuth();
@@ -42,14 +42,14 @@ function Dashboard(props) {
             <Toolbar />
 
             <div className="d-flex flex-column side-bar">
-                <Divider />
+                {/* <Divider /> */}
                 <NavLink to='/explore'>Car Gallery</NavLink>
                 <NavLink to={`${url}/payment`}>Payment</NavLink>
-                <NavLink to={`${url}/my-order`}>My Order</NavLink>
+                <NavLink to={`${url}/my-order`}>My Orders</NavLink>
                 <NavLink to={`${url}/review`}>Review</NavLink>
                 <NavLink to={`${url}/add-car`}>Add New Car</NavLink>
-                <Divider />
-                <Button onClick={logoutUser} variant="outlined" color="error" style={{ margin: '5px' }}>Logout</Button>
+                {/* <Divider /> */}
+                <Button onClick={logoutUser} variant="outlined" color="error" style={{ margin: '5px', width: '50%' }}>Logout</Button>
             </div>
 
 

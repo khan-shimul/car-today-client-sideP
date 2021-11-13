@@ -37,6 +37,7 @@ const MyOrders = () => {
 
     return (
         <div>
+            <h2 className="text-center">Your Orders</h2>
             <Row xs={1} md={3} className="g-4">
                 {
                     myOrders.map(order => <MyOrder
