@@ -12,7 +12,7 @@ const SingleReview = ({ singleReview }) => {
                         <Card.Img variant="top" className="img-fluid me-3" src={singleReview?.img} />
                     </div>
                     <div>
-                        <Card.Title className="fs-4">
+                        <Card.Title className="fs-5 primary-color">
                             {singleReview?.name}
                         </Card.Title>
                         <Rating className="text-warning ms-2"

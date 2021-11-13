@@ -37,6 +37,11 @@ const CarDetails = () => {
                     history.push('/dashboard/my-order')
                 }
             })
+    };
+
+    // handle back to all cars
+    const handleAllCars = () => {
+        history.push('/explore');
     }
 
     return (
@@ -71,7 +76,7 @@ const CarDetails = () => {
                                     <div className="line"></div>
                                     <span className="description">{description}</span>
                                 </Card.Text>
-                                <button className="btn-regular">Back to All Pack</button>
+                                <button onClick={handleAllCars} className="btn-regular">Back to Gallery</button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -86,7 +91,7 @@ const CarDetails = () => {
                             <input type="number" {...register("phoneNumber", { required: true })} placeholder="Phone Number" className="mb-2 p-2 border rounded-2" />
 
                             <textarea rows="3"  {...register("address")} placeholder="Your Address" className="mb-2 p-3 border rounded-2" />
-                            <input value="Order Now" type="submit" className="btn btn-secondary p-2 mt-2" />
+                            <input value="Order Now" type="submit" className="btn btn-secondary p-3 mt-2" />
                         </form>
                     </div>
                 </div>
