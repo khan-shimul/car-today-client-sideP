@@ -11,12 +11,13 @@ const Cars = () => {
         <section className="container my-5">
             <div className="text-center">
                 <h2 className="mb-4">Our Luxury Cars</h2>
+                <div className="d-flex mx-auto line"></div>
 
                 {
                     !cars.length && <Spinner animation="border" variant="danger" className="my-5" />
                 }
             </div>
-            <div className="cars-container">
+            <div className="my-5">
                 <Row xs={1} md={3} className="g-4">
                     {
                         cars?.slice(0, 6).map(car => <Car

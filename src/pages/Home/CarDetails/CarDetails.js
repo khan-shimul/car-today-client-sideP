@@ -52,7 +52,7 @@ const CarDetails = () => {
                         <Card className="single-pack">
                             <Card.Img style={{ height: '300px', objectFit: 'contain' }} className="img-fluid" variant="top" src={img} />
                             <Card.Body className="p-4">
-                                <Card.Title className="fw-bold fs-3">{name}</Card.Title>
+                                <Card.Title className="fw-bold fs-3 primary-color">{name}</Card.Title>
                                 <Card.Text className="text-secondary">
                                     <span className="fw-bold text-dark">${price}</span> {color}
                                     <br />
@@ -61,7 +61,7 @@ const CarDetails = () => {
 
                                 <Card.Text>
                                     <p className="fw-bold fs-5">Overview <span>
-                                        <Rating className="icons ms-2"
+                                        <Rating className="rating-icon ms-2"
                                             initialRating={rating}
                                             emptySymbol="far fa-star rating-star"
                                             fullSymbol="fas fa-star fs-6 rating-star"
@@ -69,9 +69,9 @@ const CarDetails = () => {
                                         />
                                     </span></p>
                                     <div className="line"></div>
-                                    {description}
+                                    <span className="description">{description}</span>
                                 </Card.Text>
-                                <Button variant="danger">Back to All Pack</Button>
+                                <button className="btn-regular">Back to All Pack</button>
                             </Card.Body>
                         </Card>
                     </div>
@@ -86,7 +86,7 @@ const CarDetails = () => {
                             <input type="number" {...register("phoneNumber", { required: true })} placeholder="Phone Number" className="mb-2 p-2 border rounded-2" />
 
                             <textarea rows="3"  {...register("address")} placeholder="Your Address" className="mb-2 p-3 border rounded-2" />
-                            <input value="Order Now" type="submit" className="btn btn-primary p-2 mt-2" />
+                            <input value="Order Now" type="submit" className="btn btn-secondary p-2 mt-2" />
                         </form>
                     </div>
                 </div>

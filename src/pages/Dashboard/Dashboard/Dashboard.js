@@ -27,6 +27,7 @@ import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 import ManageProducts from '../Admin/ManageProducts/ManageProducts/ManageProducts';
 import ManageAllOrders from '../Admin/ManageAllOrders/ManageAllOrders/ManageAllOrders';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import PrivateRoute from '../../PrivateRoute/PrivateRoute';
 
 const drawerWidth = 250;
 
@@ -139,18 +140,18 @@ function Dashboard(props) {
             >
                 <Toolbar />
                 <Switch>
-                    <Route exact path={path}>
+                    <PrivateRoute exact path={path}>
                         <DashboardHome />
-                    </Route>
-                    <Route path={`${path}/payment`}>
+                    </PrivateRoute>
+                    <PrivateRoute path={`${path}/payment`}>
                         <Payment />
-                    </Route>
-                    <Route path={`${path}/my-order`}>
+                    </PrivateRoute>
+                    <PrivateRoute path={`${path}/my-order`}>
                         <MyOrders />
-                    </Route>
-                    <Route path={`${path}/review`}>
+                    </PrivateRoute>
+                    <PrivateRoute path={`${path}/review`}>
                         <Review />
-                    </Route>
+                    </PrivateRoute>
                     {/* Admin Route */}
                     <AdminRoute path={`${path}/manage-all-orders`}>
                         <h2>manage-all-orders</h2>
