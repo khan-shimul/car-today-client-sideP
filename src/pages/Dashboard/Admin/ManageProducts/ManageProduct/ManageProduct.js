@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import './ManageProduct.css';
 
 const ManageProduct = ({ manageProduct, deleteProduct }) => {
     const { _id, name, img, price, fast } = manageProduct;
 
     return (
         <Col>
-            <Card className="p-3 h-100 car">
+            <Card className="p-2 h-100 single-product">
                 <Card.Img variant="top" className="img-fluid" src={img} />
                 <Card.Body>
-                    <Card.Title className="fs-4">{name}
+                    <Card.Title className="fs-6 primary-color">{name}
                     </Card.Title>
                     <p>
                         ${price} <br />
@@ -22,7 +23,8 @@ const ManageProduct = ({ manageProduct, deleteProduct }) => {
                     <Button
                         onClick={() => deleteProduct(_id)}
                         variant="danger"
-                    >Remove Item</Button>
+                        size="sm"
+                    >Remove</Button>
                 </Card.Body>
             </Card>
         </Col>

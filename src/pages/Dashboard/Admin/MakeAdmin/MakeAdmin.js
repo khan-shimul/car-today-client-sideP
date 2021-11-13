@@ -25,8 +25,7 @@ const MakeAdmin = () => {
             })
     };
     return (
-        <div className="w-50">
-            <h4 className="m-3 text-secondary">Make an Admin</h4>
+        <div className="w-100">
             <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column justify-content-center">
                 <input placeholder="Admin email" {...register("email", { required: true })} className="mb-3 p-3 border rounded-2" />
 

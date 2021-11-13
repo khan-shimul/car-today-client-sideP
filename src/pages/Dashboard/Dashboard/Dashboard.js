@@ -13,7 +13,6 @@ import Button from '@mui/material/Button';
 import { NavLink } from 'react-router-dom';
 import {
     Switch,
-    Route,
     useRouteMatch
 } from "react-router-dom";
 import MyOrders from '../../Dashboard/MyOrders/MyOrders/MyOrders';
@@ -154,17 +153,22 @@ function Dashboard(props) {
                     </PrivateRoute>
                     {/* Admin Route */}
                     <AdminRoute path={`${path}/manage-all-orders`}>
-                        <h2>manage-all-orders</h2>
+                        <h2 className="text-center">Manage All Orders</h2>
                         <ManageAllOrders />
                     </AdminRoute>
                     <AdminRoute path={`${path}/add-car`}>
                         <AddCar />
                     </AdminRoute>
                     <AdminRoute path={`${path}/make-admin`}>
-                        <MakeAdmin />
+                        <div className="d-flex justify-content-center">
+                            <div>
+                                <h4 className="m-3 text-secondary">Make an Admin</h4>
+                                <MakeAdmin />
+                            </div>
+                        </div>
                     </AdminRoute>
                     <AdminRoute path={`${path}/manage-products`}>
-                        <h2>Manage Your Products</h2>
+                        <h4 className="text-secondary my-3">Manage Your Products</h4>
                         <ManageProducts />
                     </AdminRoute>
                 </Switch>
