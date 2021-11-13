@@ -6,9 +6,10 @@ const MakeAdmin = () => {
 
     // add cars api
     const onSubmit = data => {
-        fetch('https://floating-beyond-24545.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method: 'PUT',
             headers: {
+                'authorization': `Bearer ${localStorage.getItem('idToken')}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(data)

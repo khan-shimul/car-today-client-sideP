@@ -5,7 +5,11 @@ const ManageAllOrders = () => {
     const [allOrders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('https://floating-beyond-24545.herokuapp.com/all-orders')
+        fetch('https://floating-beyond-24545.herokuapp.com/all-orders', {
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('idToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [allOrders])

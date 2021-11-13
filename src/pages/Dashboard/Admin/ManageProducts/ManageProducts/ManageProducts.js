@@ -11,7 +11,10 @@ const ManageProducts = () => {
         const proceed = window.confirm('Are you sure want to delete this product?');
         if (proceed) {
             fetch(`https://floating-beyond-24545.herokuapp.com/cars/${id}`, {
-                method: 'DELETE'
+                method: 'DELETE',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('idToken')}`
+                }
             })
                 .then(res => res.json())
                 .then(data => {
