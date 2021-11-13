@@ -1,5 +1,5 @@
-.details-banner{
-    background-image: url("https://img.freepik.com/free-photo/headlights-black-modern-car-close-up-modern-luxury-car-closeup-banner-background_427248-252.jpg?size=626&ext=jpg"),
+.explore-banner{
+    background-image: url("../../images/banner/4.jpg"),
     linear-gradient(rgba(37, 11, 0, 0.904), rgba(44, 0, 0, 0.664));
 
     background-size: cover;

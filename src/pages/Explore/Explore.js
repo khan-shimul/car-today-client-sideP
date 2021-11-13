@@ -9,7 +9,7 @@ const Explore = () => {
 
     return (
         <section>
-            <div className="details-banner d-flex justify-content-center align-items-center text-white text-center">
+            <div className="explore-banner d-flex justify-content-center align-items-center text-white text-center">
                 <div>
                     <h2 className="fw-bold">Cars Gallery</h2>
                 </div>
