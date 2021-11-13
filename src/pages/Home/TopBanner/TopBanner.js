@@ -1,17 +1,23 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import './TopBanner.css';
 
 const TopBanner = () => {
+    const history = useHistory();
+    // handle explore
+    const handleExplore = () => {
+        history.push('/explore')
+    }
     return (
         <div>
             <div className="banner">
                 <div className="container">
                     <div className="row text-white banner d-flex justify-content-center align-items-center">
                         <div className="col-12 col-md-7">
-                            <h1>Eng Prescribe <br /> Car-Today Products</h1>
-                            <p> Medical Solve doctors allows you the potential to impact human life in a way that is truly unique and the job satisfaction you get is unparalleled.</p>
-                            <Button variant="warning">Explore Now</Button>
+                            <h1 className="fw-bold">Find The Right <br /> Car For You</h1>
+                            <p> We have more than a thousand cars for you to choose</p>
+                            <Button onClick={handleExplore} variant="warning">Explore Now</Button>
                         </div>
                         <div className="col-12 col-md-5">
 

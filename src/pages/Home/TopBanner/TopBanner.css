@@ -9,3 +9,13 @@
     width: 100%;
     background-blend-mode: overlay;
 }
+
+/* responsiveness banner */
+@media only screen and (max-width: 768px) {
+    .banner{
+        height: 350px;
+    }
+    .banner h1, p{
+        margin: 20px 0 0 10px;
+    }
+}
