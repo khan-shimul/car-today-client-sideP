@@ -13,6 +13,10 @@ import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import CarGallery from './pages/CarGallery/CarGallery';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import NotFound from './pages/NotFound/NotFound';
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 
 function App() {

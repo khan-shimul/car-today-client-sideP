@@ -14,7 +14,7 @@ const Car = ({ car }) => {
 
     return (
         <Col>
-            <Card className="p-3 h-100 car">
+            <Card data-aos="zoom-in" className="p-3 h-100 car">
                 <Card.Img variant="top" className="img-fluid" src={img} />
                 <Card.Body>
                     <Card.Title className="primary-color fs-5">{name}
