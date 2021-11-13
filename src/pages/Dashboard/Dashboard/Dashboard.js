@@ -24,6 +24,7 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
 import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
+import ManageProducts from '../Admin/ManageProducts/ManageProducts/ManageProducts';
 
 const drawerWidth = 250;
 
@@ -159,7 +160,8 @@ function Dashboard(props) {
                         <MakeAdmin />
                     </Route>
                     <Route path={`${path}/manage-products`}>
-                        <h2>manage-products</h2>
+                        <h2>Manage Your Products</h2>
+                        <ManageProducts />
                     </Route>
                 </Switch>
             </Box>

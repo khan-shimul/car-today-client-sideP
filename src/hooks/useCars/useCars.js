@@ -10,7 +10,8 @@ const useCars = () => {
     }, [])
 
     return [
-        cars
+        cars,
+        setCars
     ]
 };
 
