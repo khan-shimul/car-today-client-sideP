@@ -28,7 +28,7 @@ import MakeAdmin from '../Admin/MakeAdmin/MakeAdmin';
 const drawerWidth = 250;
 
 function Dashboard(props) {
-    const { user, logoutUser } = useAuth();
+    const { user, admin, logoutUser } = useAuth();
 
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -44,15 +44,25 @@ function Dashboard(props) {
 
             <div className="d-flex flex-column side-bar">
                 {/* <Divider /> */}
-                <NavLink to='/explore'>Car Gallery</NavLink>
-                <NavLink to={`${url}/payment`}>Payment</NavLink>
-                <NavLink to={`${url}/my-order`}>My Orders</NavLink>
-                <NavLink to={`${url}/review`}>Review</NavLink>
+                {!admin && <>
+                    <NavLink to='/explore'>Car Gallery</NavLink>
+                    <NavLink to={`${url}/payment`}>Payment</NavLink>
+                    <NavLink to={`${url}/my-order`}>My Orders</NavLink>
+                    <NavLink to={`${url}/review`}>Review</NavLink>
+                </>}
 
-                <NavLink to={`${url}/manage-all-orders`}>Manage All Orders</NavLink>
-                <NavLink to={`${url}/add-car`}>Add New Car</NavLink>
-                <NavLink to={`${url}/make-admin`}>Make Admin</NavLink>
-                <NavLink to={`${url}/manage-products`}>Manage Products</NavLink>
+                {admin && <>
+                    <NavLink to='/'>Home</NavLink>
+                    <Divider />
+                    <NavLink to={`${url}/manage-all-orders`}>Manage All Orders</NavLink>
+                    <Divider />
+                    <NavLink to={`${url}/add-car`}>Add New Car</NavLink>
+                    <Divider />
+                    <NavLink to={`${url}/make-admin`}>Make Admin</NavLink>
+                    <Divider />
+                    <NavLink to={`${url}/manage-products`}>Manage Products</NavLink>
+                    <Divider />
+                </>}
                 {/* <Divider /> */}
                 <Button onClick={logoutUser} variant="outlined" color="error" style={{ margin: '5px', width: '50%' }}>Logout</Button>
             </div>
