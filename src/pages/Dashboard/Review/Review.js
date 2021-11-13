@@ -11,7 +11,7 @@ const Review = () => {
 
     // add cars api
     const onSubmit = data => {
-        axios.post('http://localhost:5000/reviews', { data })
+        axios.post('https://floating-beyond-24545.herokuapp.com/reviews', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     alert('Thanks for your valuable feedback')

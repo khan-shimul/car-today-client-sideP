@@ -17,7 +17,7 @@ const CarDetails = () => {
     const { name, price, img, description, rating, fast, color } = singleCar;
     // load single data
     useEffect(() => {
-        fetch(`http://localhost:5000/cars/${id}`)
+        fetch(`https://floating-beyond-24545.herokuapp.com/cars/${id}`)
             .then(res => res.json())
             .then(data => {
                 setSingleCar(data)
@@ -30,7 +30,7 @@ const CarDetails = () => {
     const onSubmit = data => {
         data.carSelf = { img: img, price: price, color: color }
         data.status = 'Pending';
-        axios.post('http://localhost:5000/orders', { data })
+        axios.post('https://floating-beyond-24545.herokuapp.com/orders', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     alert('Successfully order placed')

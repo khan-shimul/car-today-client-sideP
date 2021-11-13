@@ -8,7 +8,7 @@ const MyOrders = () => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://floating-beyond-24545.herokuapp.com/orders?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyOrders(data)
@@ -19,7 +19,7 @@ const MyOrders = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are your sure want to cancel this order?');
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://floating-beyond-24545.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

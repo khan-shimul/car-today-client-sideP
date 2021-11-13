@@ -8,7 +8,7 @@ const AddCar = () => {
 
     // add cars api
     const onSubmit = data => {
-        axios.post('http://localhost:5000/cars', { data })
+        axios.post('https://floating-beyond-24545.herokuapp.com/cars', { data })
             .then(result => {
                 if (result.data.insertedId) {
                     alert('added successfully')

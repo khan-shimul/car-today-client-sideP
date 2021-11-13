@@ -5,14 +5,14 @@ const ManageAllOrders = () => {
     const [allOrders, setOrders] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/all-orders')
+        fetch('https://floating-beyond-24545.herokuapp.com/all-orders')
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [allOrders])
 
     // handle status update
     const handleStatus = id => {
-        fetch(`http://localhost:5000/orders/${id}`, {
+        fetch(`https://floating-beyond-24545.herokuapp.com/orders/${id}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ const ManageAllOrders = () => {
     const handleDeleteOrder = id => {
         const proceed = window.confirm('Are you sure want to delete the order?');
         if (proceed) {
-            fetch(`http://localhost:5000/orders/${id}`, {
+            fetch(`https://floating-beyond-24545.herokuapp.com/orders/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
