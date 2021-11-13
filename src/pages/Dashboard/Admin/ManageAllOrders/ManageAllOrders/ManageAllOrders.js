@@ -20,13 +20,28 @@ const ManageAllOrders = () => {
                 console.log(data)
             })
 
+    };
+
+    // handle delete order
+    const handleDeleteOrder = id => {
+        const proceed = window.confirm('Are you sure want to delete the order?');
+        if (proceed) {
+            fetch(`http://localhost:5000/orders/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        alert('Successfully deleted')
+                        const restAllOrders = allOrders?.filter(rest => rest._id !== id);
+                        setOrders(restAllOrders)
+                    }
+                })
+        }
     }
 
     return (
         <div>
-            <div className="banner-my-booking d-flex justify-content-center align-items-center text-white banner-my-booking text-center py-5">
-                <h2 className="fw-bold fs-3">Manage All Orders</h2>
-            </div>
             <div className="table-responsive-sm table-responsive table-responsive-md table-responsive-lg table-responsive-xl my-3">
                 {
                     allOrders.length && <Table striped bordered hover variant="dark">
@@ -58,7 +73,7 @@ const ManageAllOrders = () => {
                                         </Dropdown.Menu>
                                     </Dropdown></td>
 
-                                    <td><Button variant="danger" size="sm">
+                                    <td><Button onClick={() => handleDeleteOrder(allOrder._id)} variant="danger" size="sm">
                                         Delete
                                     </Button></td>
                                 </tr>)
